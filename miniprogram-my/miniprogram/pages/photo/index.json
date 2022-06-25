@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "甜蜜相册",
+  "usingComponents": {
+    "h-swiper": "../../component/swiper"
+  }
+}

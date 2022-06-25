@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "信息墙",
+  "usingComponents": {
+    "h-video": "../../component/video",
+    "h-form": "../../component/form",
+    "h-formlist": "../../component/formlist"
+  }
+}

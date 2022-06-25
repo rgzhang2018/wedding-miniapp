@@ -1,0 +1,1 @@
+<view class="photo data-v-870ab53e"><image class="bg-image data-v-870ab53e" src="{{a}}"/><h-swiper wx:if="{{b}}" class="data-v-870ab53e" u-i="870ab53e-0" bind:__l="__l" u-p="{{b}}"></h-swiper></view>

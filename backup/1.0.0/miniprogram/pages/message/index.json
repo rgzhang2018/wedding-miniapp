@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "留言评论",
+  "usingComponents": {
+    "h-video": "../../component/video",
+    "h-form": "../../component/form",
+    "h-formlist": "../../component/formlist"
+  }
+}

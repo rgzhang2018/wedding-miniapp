@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我们结婚啦",
+  "usingComponents": {
+    "index-swiper": "../../component/index-swiper"
+  }
+}
