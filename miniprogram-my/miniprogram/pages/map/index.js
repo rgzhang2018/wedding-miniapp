@@ -1,5 +1,6 @@
 "use strict";
 var common_vendor = require("../../common/vendor.js");
+var myControl = require( "../../common/share-control.js");
 const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
   setup(__props) {
     const markers = common_vendor.ref([
@@ -14,14 +15,16 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     ]);
     const heNumber = common_vendor.ref("");
     const sheNumber = common_vendor.ref("");
+    var connectText = "";
     common_vendor.onMounted(() => {
       const db = wx.cloud.database();
       const common = db.collection("common");
       common.get().then((res) => {
-        heNumber.value = res.data[0].heNumber;
-        sheNumber.value = res.data[0].sheNumber;
-        markers.value[0].latitude = res.data[0].location.latitude;
-        markers.value[0].longitude = res.data[0].location.longitude;
+        heNumber.value = res.data[myControl.getCurrentSwitchIndex()].heNumber;
+        sheNumber.value = res.data[myControl.getCurrentSwitchIndex()].sheNumber;
+        connectText = res.data[myControl.getCurrentSwitchIndex()].connectText;
+        markers.value[0].latitude = res.data[myControl.getCurrentSwitchIndex()].location.latitude;
+        markers.value[0].longitude = res.data[myControl.getCurrentSwitchIndex()].location.longitude;
       });
     });
     const toNav = () => {
@@ -48,7 +51,8 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         c: markers.value,
         d: common_vendor.o(toNav),
         e: common_vendor.o(linkHe),
-        f: common_vendor.o(linkShe)
+        f: common_vendor.o(linkShe),
+        text: connectText
       };
     };
   }

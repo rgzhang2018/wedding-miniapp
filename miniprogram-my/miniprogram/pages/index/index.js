@@ -1,9 +1,12 @@
 "use strict";
 var common_vendor = require("../../common/vendor.js");
 var utils_index = require("../../utils/index.js");
+var myControl = require( "../../common/share-control.js");
+
 if (!Math) {
   IndexSwiper();
 }
+
 const IndexSwiper = () => "../../component/index-swiper.js";
 const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
   setup(__props) {
@@ -15,7 +18,22 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     const globalData = instance.appContext.config.globalProperties.globalData;
     const innerAudioContext = globalData.innerAudioContext;
     const background = common_vendor.ref("");
-    common_vendor.onLoad(() => {
+    common_vendor.onLoad((options) => {
+        console.log("index - onload")
+        // 获取到url里的参数 放入share-control.js里 负责控制不同页面
+        var pages = getCurrentPages() //获取加载的页面
+        var currentPage = pages[pages.length - 1] //获取当前页面的对象
+        var url = currentPage.route //当前页面url
+        var options = currentPage.options //如果要获取url中所带的参数可以查看options
+        var urlWithArgs = url + '?'
+        for (var key in options) {
+            var value = options[key]
+            urlWithArgs += key + '=' + value + '&'
+        }
+        urlWithArgs = urlWithArgs.substring(0, urlWithArgs.length - 1);
+        console.log("onLoad get urlWithArgs:" + urlWithArgs)
+        myControl.setInitSwitch(urlWithArgs) // 将完整的首次进入链接缓存起来
+
       innerAudioContext.onEnded(onEnded);
       innerAudioContext.onPlay(onPlay);
       innerAudioContext.onPause(onPause);
@@ -28,11 +46,9 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
       getBannerList();
     });
     common_vendor.onShow(() => {
-      console.log("common_vendor onShow");
       autoplay.value = true;
     });
     common_vendor.onHide(() => {
-      console.log("common_vendor onHide");
       autoplay.value = false;
     });
     const audioPlay = () => {
@@ -45,17 +61,14 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
       }
     };
     const onPlay = () => {
-        console.log("music onPlay");
       isPlaying.value = true;
 	};
 
 
     const onPause = () => {
-        console.log("music onPause");
       isPlaying.value = false;
     };
     const onEnded = () => {
-      console.log("music onEnded");
       if (globalData.musicIndex >= globalData.musicList.length) {
         globalData.musicIndex = 0;
       }
@@ -68,9 +81,9 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
       banner.get().then((res) => {
         let result = [];
         let animations = ["fadeInLeft", "slideInDown", "rotateInDownRight", "rollIn", "jackInTheBox", "flip"];
-        for (let i = 0; i < res.data[0].bannerList.length; i++) {
+        for (let i = 0; i < res.data[myControl.getCurrentSwitchIndex()].bannerList.length; i++) {
           result.push({
-            url: res.data[0].bannerList[i],
+            url: res.data[myControl.getCurrentSwitchIndex()].bannerList[i],
             show: i === 0,
             class: animations[i]
           });
@@ -79,9 +92,12 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
       });
     };
     common_vendor.onShareAppMessage(() => {
-      return {
-        path: "/pages/index/index"
-      };
+        console.log("share message, current mySwitchIndex:" + myControl.getCurrentSwitchIndex())
+        var uri = "/pages/index/index?index=" + mySwitchIndex.toString()
+        // var uri = "/pages/index/index?index=1"
+        return {
+            path: uri
+        };
     });
     return (_ctx, _cache) => {
       return common_vendor.e({

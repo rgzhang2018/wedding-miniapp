@@ -17,14 +17,11 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     const instance = common_vendor.getCurrentInstance();
     const globalData = instance.appContext.config.globalProperties.globalData;
     common_vendor.onHide(() => {
-        console.log("swiper onHide");
     });
     const change = (val) => {
-        console.log("swiper change");
       changeFlag.value = true;
     };
     const animationfinish = (val) => {
-        console.log("swiper animationfinish");
       if (!changeFlag.value) {
         return;
       }

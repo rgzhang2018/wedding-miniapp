@@ -1,5 +1,6 @@
 "use strict";
 var common_vendor = require("../common/vendor.js");
+var myControl = require( "../common/share-control.js");
 const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
   props: {
     list: Array,
@@ -22,7 +23,6 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     const lastIndex = common_vendor.ref(0);
     common_vendor.ref(-1);
     setTimeout(() => {
-        console.log("index-swiper setTimeout");
       showOverlay0.value = true;
     }, 1500);
     // const change = () => {
@@ -56,11 +56,11 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     var titleInfo ={
     };
     common.get().then((res) => {
-        titleInfo.titleName = res.data[0].titleName;
-        titleInfo.titleDate = res.data[0].titleDate;
-        titleInfo.titleTime = res.data[0].titleTime;
-        titleInfo.titleHotel = res.data[0].titleHotel;
-        titleInfo.titleDetail = res.data[0].titleDetail;
+        titleInfo.titleName = res.data[myControl.getCurrentSwitchIndex()].titleName;
+        titleInfo.titleDate = res.data[myControl.getCurrentSwitchIndex()].titleDate;
+        titleInfo.titleTime = res.data[myControl.getCurrentSwitchIndex()].titleTime;
+        titleInfo.titleHotel = res.data[myControl.getCurrentSwitchIndex()].titleHotel;
+        titleInfo.titleDetail = res.data[myControl.getCurrentSwitchIndex()].titleDetail;
     });
 
     return (_ctx, _cache) => {

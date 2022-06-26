@@ -1,1 +1,12 @@
-<view class="map data-v-30ce350b"><image mode="aspectFit" class="head-img data-v-30ce350b" src="/static/images/t1.png"/><map class="content data-v-30ce350b" id="map" longitude="{{a}}" latitude="{{b}}" markers="{{c}}" scale="18" bindtap="{{d}}"></map><view class="call data-v-30ce350b"><view class="left data-v-30ce350b" bindtap="{{e}}"><image class="data-v-30ce350b" src="/static/images/he.png"/><label class="data-v-30ce350b">呼叫新郎</label></view><view class="right data-v-30ce350b" bindtap="{{f}}"><image class="data-v-30ce350b" src="/static/images/she.png"/><label class="data-v-30ce350b">呼叫新娘</label></view></view><image class="footer data-v-30ce350b" src="/static/images/grren-flower-line.png"/></view>
+<view class="map data-v-30ce350b">
+    <image mode="aspectFit" class="head-img data-v-30ce350b" src="/static/images/t1.png" /><map class="content data-v-30ce350b" id="map" longitude="{{a}}" latitude="{{b}}" markers="{{c}}" scale="18" bindtap="{{d}}"></map>
+    <view class="call data-v-30ce350b">
+        <view class="left data-v-30ce350b" bindtap="{{e}}">
+            <image class="data-v-30ce350b" src="/static/images/telphone.png" /><label class="data-v-30ce350b">{{text}}</label>
+        </view>
+        <!-- <view class="right data-v-30ce350b" bindtap="{{f}}">
+            <image class="data-v-30ce350b" src="/static/images/she.png" /> <label class="data-v-30ce350b">联系我们</label>
+        </view> -->
+    </view>
+    <image class="footer data-v-30ce350b" src="/static/images/grren-flower-line.png" />
+</view>
