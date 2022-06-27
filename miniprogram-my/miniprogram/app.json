@@ -46,7 +46,7 @@
         "pagePath": "pages/message/index",
         "iconPath": "static/images/5-1.png",
         "selectedIconPath": "static/images/5-2.png",
-        "text": "信息墙"
+        "text": "留言板"
       }
     ]
   },

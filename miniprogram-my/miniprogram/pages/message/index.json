@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "信息墙",
+  "navigationBarTitleText": "留个言吧",
   "usingComponents": {
     "h-video": "../../component/video",
     "h-form": "../../component/form",

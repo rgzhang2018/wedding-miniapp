@@ -10,6 +10,8 @@ const HFormlist = () => "../../component/formlist.js";
 const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
   setup(__props) {
     var profileSwitch = true
+    var showReal = false;
+    var showJoinBord = false;
     const isOpen = common_vendor.ref(false);
     const desc = common_vendor.ref("");
     const messageList = common_vendor.ref([]);
@@ -30,6 +32,16 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
       return adminsIds.value.indexOf(openId.value) !== -1;
     });
     common_vendor.onMounted(() => {
+        const db = wx.cloud.database();
+        const common = db.collection("common");
+        common.get().then((res) => {
+          if (res.data[0].showReal === "1") {
+              showReal = true;
+          }
+          if (res.data[0].joinBord === "1") {
+            showJoinBord = true;
+          }
+        });
       getVideoUrl();
       isVideo.value = false;
       isForm.value = false;
@@ -328,7 +340,9 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         t: common_vendor.p({
           formList: formList.value
         }),
-        v: isFormlist.value
+        v: isFormlist.value,
+        isok: showReal,
+        joinBord: showJoinBord
       });
     };
   }

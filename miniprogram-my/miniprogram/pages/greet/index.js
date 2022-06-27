@@ -4,10 +4,18 @@ var utils_index = require("../../utils/index.js");
 
 const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
   setup(__props) {
+    var showReal = false;
     const userList = common_vendor.ref([]);
     const openId = common_vendor.ref("");
     const userInfo = common_vendor.ref(null);
     common_vendor.onMounted(() => {
+        const db = wx.cloud.database();
+        const common = db.collection("common");
+        common.get().then((res) => {
+          if (res.data[0].showReal === "1") {
+              showReal = true;
+          }
+        });
       getUserList();
     });
     const sendGreet = (e) => {
@@ -81,7 +89,8 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
           };
         }),
         b: common_vendor.t(userList.value.length),
-        c: common_vendor.o(sendGreetWithProfile)
+        c: common_vendor.o(sendGreetWithProfile),
+        isok: showReal
       };
     };
   }

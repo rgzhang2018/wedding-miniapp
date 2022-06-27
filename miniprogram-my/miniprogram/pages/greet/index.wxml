@@ -1,4 +1,4 @@
-<view class="greet data-v-eb435510">
+<view wx:if="{{isok}}" class="greet data-v-eb435510">
     <image class="head data-v-eb435510" src="/static/images/heart-animation.gif" />
     <scroll-view scroll-y class="box data-v-eb435510">
         <view wx:for="{{a}}" wx:for-item="item" wx:key="c" class="item data-v-eb435510">
@@ -12,4 +12,7 @@
         <!-- <button class="left data-v-eb435510" lang="zh_CN" open-type="getUserInfo" bindgetuserinfo="{{c}}">送上祝福</button> -->
         <button class="right data-v-eb435510" open-type="share">分享喜悦</button>
     </view>
+</view>
+<view wx:else>
+    <image src="/static/images/null.jpg" class="bg-image"/>
 </view>
