@@ -18,6 +18,14 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         });
       getUserList();
     });
+    common_vendor.onShareAppMessage(() => {
+        console.log("share message, current mySwitchIndex:" + myControl.getCurrentSwitchIndex())
+        var uri = "/pages/index/index?index=" + mySwitchIndex.toString()
+        // var uri = "/pages/index/index?index=1"
+        return {
+            path: uri
+        };
+    });
     const sendGreet = (e) => {
       if (e.target.errMsg === "getUserInfo:ok") {
         wx.getUserInfo({

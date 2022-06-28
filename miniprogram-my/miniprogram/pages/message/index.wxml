@@ -1,4 +1,4 @@
-<view wx:if="{{isok}}" class="message data-v-716a8bf6">
+<view class="message data-v-716a8bf6">
     <scroll-view scroll-y class="box data-v-716a8bf6">
         <view class="place data-v-716a8bf6"></view>
         <view wx:for="{{a}}" wx:for-item="item" wx:key="g" class="item data-v-716a8bf6">
@@ -14,17 +14,15 @@
         </view>
         <view class="place-end data-v-716a8bf6"></view>
     </scroll-view>
-    <view class="bottom data-v-716a8bf6">
+    <view wx:if="{{isok}}" class="bottom data-v-716a8bf6">
         <block>
             <button wx:if="{{profile}}" class="left data-v-716a8bf6" lang="zh_CN" bindtap="{{userProfile}}">说点啥吧</button>
             <button wx:else open-type="getUserInfo" class="left data-v-716a8bf6" lang="zh_CN" open-type="getUserInfo" bindgetuserinfo="{{b}}">说点啥吧</button>
         </block>
-        <block>
+        <block  wx:if="{{joinBord}}">
             <button wx:if="{{profile}}" class="right data-v-716a8bf6" bindtap="{{toFormNew}}">我要出席</button>
             <button wx:else open-type="getUserInfo" class="right data-v-716a8bf6" open-type="getUserInfo" bindgetuserinfo="{{c}}">我要出席</button>
         </block>
-        <!-- <button class="left data-v-716a8bf6" lang="zh_CN" open-type="getUserInfo" bindgetuserinfo="{{b}}">说点啥吧</button>  -->
-        <!-- <button class="right data-v-716a8bf6" open-type="getUserInfo" bindgetuserinfo="{{c}}">我要出席</button> -->
     </view>
     <view class="dialog data-v-716a8bf6" hidden="{{!h}}">
         <block wx:if="{{r0}}"><textarea focus="true" maxlength="80" class="desc data-v-716a8bf6" placeholder="在这里输入您想要说的话" name="textarea" placeholder-style="color:#ccc;" value="{{d}}" bindinput="{{e}}" /></block>
@@ -46,6 +44,6 @@
         <h-formlist wx:if="{{t}}" class="data-v-716a8bf6" bindcloseFormlist="{{s}}" u-i="716a8bf6-2" bind:__l="__l" u-p="{{t}}"></h-formlist>
     </view>
 </view>
-<view wx:else>
+<!-- <view wx:else>
     <image src="/static/images/null.jpg" class="bg-image"/>
-</view>
+</view> -->
