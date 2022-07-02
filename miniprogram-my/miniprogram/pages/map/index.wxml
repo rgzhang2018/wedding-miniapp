@@ -9,4 +9,10 @@
         </view> -->
     </view>
     <image class="footer data-v-30ce350b" src="/static/images/grren-flower-line.png" />
+    <view class="bottom data-v-switchtab">
+        <button bindtap="{{jump2}}"  class="left data-v-switchtab" lang="zh_CN" >前席</button>
+        <button bindtap="{{jump0}}"  class="left data-v-switchtab" lang="zh_CN" >婚宴</button>
+        <button bindtap="{{jump1}}"  class="left data-v-switchtab" lang="zh_CN" >回门宴</button>
+    </view>
+
 </view>

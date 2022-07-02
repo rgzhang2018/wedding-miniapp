@@ -4,7 +4,7 @@ var controlSwitch = 0;
 var argStr = '';
 
 function getCurrentSwitchIndex() {
-    console.log("getCurrentSwitchIndex:"+controlSwitch)
+    // console.log("getCurrentSwitchIndex:"+controlSwitch)
     return controlSwitch;
 };
 

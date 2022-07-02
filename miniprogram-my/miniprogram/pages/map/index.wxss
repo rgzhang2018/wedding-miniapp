@@ -72,3 +72,23 @@
   width: 716rpx;
   margin-left: 17rpx;
 }
+.map .bottom.data-v-switchtab {
+    height: 140rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .map .bottom .left.data-v-switchtab {
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 28rpx;
+    width: 300rpx;
+    color: rgb(255, 255, 255);
+    background: #f2bdff;
+    margin-right: 20rpx;
+  }

@@ -44,6 +44,24 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         phoneNumber: sheNumber.value
       });
     };
+    const jumpFunc0 = () => {
+        myControl.setInitSwitch("pages/index/index?index=0") // 将完整的首次进入链接缓存起来
+        wx.reLaunch({
+                  url: 'index?index=0'
+            })
+      };
+      const jumpFunc1 = () => {
+        myControl.setInitSwitch("pages/index/index?index=1") // 将完整的首次进入链接缓存起来
+        wx.reLaunch({
+                  url: 'index?index=1'
+            })
+      };
+      const jumpFunc2 = () => {
+        myControl.setInitSwitch("pages/index/index?index=2") // 将完整的首次进入链接缓存起来
+        wx.reLaunch({
+                  url: 'index?index=2'
+            })
+      };
     return (_ctx, _cache) => {
       return {
         a: markers.value[0].longitude,
@@ -52,7 +70,10 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         d: common_vendor.o(toNav),
         e: common_vendor.o(linkHe),
         f: common_vendor.o(linkShe),
-        text: connectText
+        text: connectText,
+        jump0: common_vendor.o(jumpFunc0),
+        jump1: common_vendor.o(jumpFunc1),
+        jump2: common_vendor.o(jumpFunc2),
       };
     };
   }
